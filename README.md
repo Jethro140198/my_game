@@ -8,5 +8,9 @@ Difficulty of each level increases throughout the game.
 
 Please feel free to contribute :-)
 
+Link to download the character sprite:
+https://www.gameart2d.com/free-dino-sprites.html
+The sprites has to be in the same directory as the python script to avoid errors while importing them.
+
 Reference: Youtube
 1) Tech with Tim - pygame series
