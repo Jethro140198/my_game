@@ -3,11 +3,8 @@ The objective is to clear each level by parkouring through obstacles and avoidin
 Difficulty of each level increases throughout the game.
 
 # Prerequisites:
-1) Dinosaur sprite
-https://www.gameart2d.com/free-dino-sprites.html
-
-2) pygame module
+- Dinosaur sprite [Link](https://www.gameart2d.com/free-dino-sprites.html)
+- pygame module
 
 # References: 
-1) Youtube
-  - Tech with Tim - pygame series
+- Youtube: Tech with Tim - pygame series
