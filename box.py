@@ -32,24 +32,36 @@ class Character:
         self.up = False
         self.down = False
         self.walkCount = 0
+        self.standing = True
 
     def draw(self, win):
         if self.walkCount + 1 >= 24:
             self.walkCount = 0
-        if self.left:
-            win.blit(LeftSmall[self.walkCount // 3], (self.x, self.y))
-            self.walkCount += 1
-        elif self.right:
-            win.blit(RightSmall[self.walkCount // 3], (self.x, self.y))
-            self.walkCount += 1
-        elif self.up:
-            win.blit(RightSmall[self.walkCount // 3], (self.x, self.y))
-            self.walkCount += 1
-        elif self.down:
-            win.blit(RightSmall[self.walkCount // 3], (self.x, self.y))
-            self.walkCount += 1
+
+        if not (self.standing):
+            if self.left:
+                win.blit(LeftSmall[self.walkCount // 3], (self.x, self.y))
+                self.walkCount += 1
+            elif self.right:
+                win.blit(RightSmall[self.walkCount // 3], (self.x, self.y))
+                self.walkCount += 1
+            elif self.up:
+                if self.left:
+                    win.blit(LeftSmall[self.walkCount // 3], (self.x, self.y))
+                else:
+                    win.blit(RightSmall[self.walkCount // 3], (self.x,self.y))
+                self.walkCount += 1
+            elif self.down:
+                if self.left:
+                    win.blit(LeftSmall[self.walkCount // 3], (self.x, self.y))
+                else:
+                    win.blit(RightSmall[self.walkCount // 3], (self.x,self.y))
+                self.walkCount += 1
         else:
-            win.blit(dinoSmall, (self.x, self.y))
+            if self.left:
+                win.blit(LeftSmall[0], (self.x,self.y))
+            else:
+                win.blit(RightSmall[0], (self.x,self.y))
 
 run = True
 polly = Character(10,200)
@@ -76,6 +88,7 @@ while run:
         polly.right = False
         polly.up = False
         polly.down = False
+        polly.standing = False
         if polly.x >= 0:
             polly.x -= polly.vel
         else:
@@ -86,6 +99,7 @@ while run:
         polly.left = False
         polly.up = False
         polly.down = False
+        polly.standing = False
         if polly.x <= wx:
             polly.x += polly.vel
         else:
@@ -94,8 +108,7 @@ while run:
     elif keys[pygame.K_DOWN]:
         polly.down = True
         polly.up = False
-        polly.right = False
-        polly.left = False
+        polly.standing = False
         if polly.y <= wy:
             polly.y += polly.vel
         else:
@@ -104,16 +117,14 @@ while run:
     elif keys[pygame.K_UP]:
         polly.up = True
         polly.down = False
-        polly.right = False
-        polly.left = False
+        polly.standing = False
         if polly.y >= 0:
             polly.y -= polly.vel
         else:
             polly.y = wy
 
     else:
-        polly.right = False
-        polly.left = False
+        polly.standing = True
         polly.walkCount = 0
 
     if not polly.isJump:
