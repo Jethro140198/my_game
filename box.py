@@ -64,7 +64,7 @@ class Character:
                 win.blit(RightSmall[0], (self.x,self.y))
 
 run = True
-polly = Character(10,200)
+polly = Character(10,400)
 
 def redrawGameWindow():
     win.fill((0, 0, 0))
