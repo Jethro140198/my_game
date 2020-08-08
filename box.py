@@ -6,6 +6,7 @@ wy = 500
 wx = 500
 win = pygame.display.set_mode((wy,wx))
 
+# Importing the character sprites
 RunRight = [pygame.image.load(f'Run ({i}).png') for i in range(1,9)]
 RunLeft = [pygame.transform.flip(RunRight[i],True, False) for i in range(0,8)]
 Dead = [pygame.image.load(f'Dead ({i}).png') for i in range(1,9)]
@@ -20,6 +21,7 @@ dinoSmall = pygame.transform.rotozoom(dino,0,0.05)
 
 clock = pygame.time.Clock()
 
+# Character class
 class Character:
     def __init__(self,x,y):
         self.x = x
@@ -71,7 +73,7 @@ def redrawGameWindow():
     polly.draw(win)
     pygame.display.update()
 
-
+# Main loop
 while run:
     clock.tick(24)
 
