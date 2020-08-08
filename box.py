@@ -131,8 +131,6 @@ while run:
         if keys[pygame.K_SPACE]:
             polly.isJump = True
             polly.vel = 5
-            polly.left = False
-            polly.right = False
             polly.walkCount = 0
             
     else:
